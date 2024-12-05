@@ -57,7 +57,8 @@ namespace bpl::controls {
       INPUT_KEY_W=47,
       INPUT_KEY_X=48,
       INPUT_KEY_Y=49,
-      INPUT_KEY_Z=50
+      INPUT_KEY_Z=50,
+      INPUT_BUTTON_FUNCTION=51
     } KeyCode;
 
     typedef enum AxisCode_ : int {

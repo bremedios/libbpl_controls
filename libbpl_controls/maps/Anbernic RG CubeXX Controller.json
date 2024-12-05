@@ -1,0 +1,44 @@
+{
+  "name": "Anbernic RG CubeXX Controller",
+  "button-map" : {
+    "0" : 9,
+    "1" : 10,
+    "2" : 12,
+    "3" : 11,
+    "4" : 13,
+    "6" : 8,
+    "7" : 7,
+    "8" : 51,
+    "9" : 23,
+    "12": 24,
+    "13": 51
+  },
+  "axis-to-button-map": [
+    {
+      "axis": 4,
+      "threshold": -16382,
+      "button": 1
+    },
+    {
+      "axis": 4,
+      "threshold": 16382,
+      "button": 2
+    },
+    {
+      "axis": 5,
+      "threshold": -16382,
+      "button": 3
+    },
+    {
+      "axis": 5,
+      "threshold": 16382,
+      "button": 4
+    }
+  ],
+  "axis-map" : {
+    "0": 1,
+    "1": 2,
+    "2": 3,
+    "3": 4
+  }
+}

@@ -104,6 +104,9 @@ int main(int argc, char** argv) {
             if (input.KeyPressed(bpl::controls::KeyCode::INPUT_BUTTON_RIGHT_STICK)) {
                 std::cout << "INPUT_BUTTON_RIGHT_STICK" << std::endl;
             }
+            if (input.KeyPressed(bpl::controls::KeyCode::INPUT_BUTTON_FUNCTION)) {
+                std::cout << "INPUT_BUTTON_FUNCTION" << std::endl;
+            }
             if (input.KeyPressed(bpl::controls::KeyCode::INPUT_KEY_A)) {
                 std::cout << "INPUT_KEY_A" << std::endl;
             }
