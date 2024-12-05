@@ -91,16 +91,16 @@ namespace bpl::controls {
         m_callback = callback;
     } // RegisterCallback
 
-    int16_t JoystickLinux::AxisValue(int index) const {
+    int16_t JoystickLinux::getAxisValue(int index) const {
         if (index >= m_numAxes) {
             std::cerr << "AxisValue: Invalid Axis(" << index << ")" << std::endl;
             return false;
         }
 
         return m_axisState[index];
-    } // AxisValue
+    } // getAxisValue
 
-    bool JoystickLinux::ButtonPressed(int button) const {
+    bool JoystickLinux::isButtonPressed(int button) const {
         if (button >= m_numButtons) {
             std::cerr << "ButtonPressed: Invalid Button(" << button << ")" << std::endl;
             return false;
@@ -111,11 +111,11 @@ namespace bpl::controls {
         else {
             return true;
         }
-    } // ButtonPressed
+    } // isButtonPressed
 
-    uint8_t JoystickLinux::HatPressed(int button) const {
+    bool JoystickLinux::isHatPressed(int button) const {
         return false;
-    } // HatPressed
+    } // isHatPressed
 
     void JoystickLinux::ProcessEvent_(
         const js_event& event) {

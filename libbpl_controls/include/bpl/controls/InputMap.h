@@ -72,7 +72,9 @@ namespace bpl::controls {
         AXIS_LEFT_Y =2,
         AXIS_RIGHT_X=3,
         AXIS_RIGHT_Y=4,
-        AXIS_THROTTLE=5
+        AXIS_LEFT_SHOULDER=5,
+        AXIS_RIGHT_SHOULDER=6,
+        AXIS_THROTTLE=7
     } AxisCode;
 
     class InputMap {

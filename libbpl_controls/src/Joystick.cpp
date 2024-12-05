@@ -4,23 +4,23 @@
 #include <bpl/controls/Joystick.h>
 
 namespace bpl::controls {
-    const std::string& Joystick::GetName() const {
+    const std::string& Joystick::getName() const {
         return m_name;
-    } // GetName
+    } // getName
 
-    int Joystick::AxesCount() const {
+    int Joystick::getAxesCount() const {
         return m_numAxes;
-    } // AxesCount
+    } // getAxesCount
 
-    int Joystick::ButtonCount() const {
+    int Joystick::getButtonCount() const {
         return m_numButtons;
-    } // ButtonCount
+    } // getButtonCount
 
-    int Joystick::BallsCount() const {
+    int Joystick::getBallsCount() const {
         return m_numBalls;
-    } // BallsCount
+    } // getBallsCount
 
-    int Joystick::HatCount() const {
+    int Joystick::getHatCount() const {
         return m_numHats;
-    } // HatCount
+    } // getHatCount
 }; // bpl::controls

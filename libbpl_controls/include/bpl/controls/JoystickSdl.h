@@ -21,10 +21,10 @@ namespace bpl::controls {
         bool Close() override;
         bool Open(int index);
 
-        [[nodiscard]] bool ButtonPressed(int button) const override;
-        [[nodiscard]]  uint8_t HatPressed(int button) const override;
+        [[nodiscard]] bool isButtonPressed(int button) const override;
+        [[nodiscard]]  bool isHatPressed(int button) const override;
         void Update() override;
-        [[nodiscard]] int16_t AxisValue(int index) const override;
+        [[nodiscard]] int16_t getAxisValue(int index) const override;
     private:
         SDL_Joystick* m_joystick=nullptr;
     };

@@ -16,15 +16,16 @@ namespace bpl::controls {
 
         virtual bool Close()=0;
 
-        [[nodiscard]] virtual const std::string& GetName() const;
-        [[nodiscard]] virtual int HatCount() const;
-        [[nodiscard]] virtual int ButtonCount() const;
-        [[nodiscard]] virtual int AxesCount() const;
-        [[nodiscard]] virtual int BallsCount() const;
+        [[nodiscard]] virtual const std::string& getName() const;
+        [[nodiscard]] virtual int getHatCount() const;
+        [[nodiscard]] virtual int getButtonCount() const;
+        [[nodiscard]] virtual int getAxesCount() const;
+        [[nodiscard]] virtual int getBallsCount() const;
 
-        [[nodiscard]] virtual int16_t AxisValue(int index) const=0;
-        [[nodiscard]] virtual bool ButtonPressed(int button) const=0;
-        [[nodiscard]] virtual uint8_t HatPressed(int button) const=0;
+        [[nodiscard]] virtual int16_t getAxisValue(int index) const=0;
+        [[nodiscard]] virtual bool isButtonPressed(int button) const=0;
+        [[nodiscard]] virtual bool isHatPressed(int button) const=0;
+
         virtual void Update()=0;
     protected:
         std::string m_name;

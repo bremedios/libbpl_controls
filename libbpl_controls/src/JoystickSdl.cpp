@@ -55,16 +55,16 @@ namespace bpl::controls {
         SDL_JoystickUpdate();
     } // Update
 
-    int16_t JoystickSdl::AxisValue(int index) const {
+    int16_t JoystickSdl::getAxisValue(int index) const {
         return 0;
-    } // AxisValue
+    } // getAxisValue
 
-    bool JoystickSdl::ButtonPressed(int button) const {
+    bool JoystickSdl::isButtonPressed(int button) const {
         return SDL_JoystickGetButton(m_joystick, button) != 0;
-    } // ButtonPressed
+    } // isButtonPressed
 
-    Uint8 JoystickSdl::HatPressed(int button) const {
+    bool JoystickSdl::isHatPressed(int button) const {
         return SDL_JoystickGetHat(m_joystick, button) != 0;
-    } // HatPressed
+    } // isHatPressed
 
 } // bpl::controls

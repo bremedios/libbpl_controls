@@ -178,9 +178,9 @@ namespace bpl::controls {
                 break;
             }
 
-            DEBUG_MSG("Opened joystick: " << joystick->GetName());
+            DEBUG_MSG("Opened joystick: " << joystick->getName());
 
-            m_joysticks[joystick->GetName()] = joystick;
+            m_joysticks[joystick->getName()] = joystick;
             joystick->RegisterCallback(this);
         }
 
@@ -208,11 +208,11 @@ namespace bpl::controls {
     } // ClearPressedKeys
 
     void Input::CallbackButtonPress(Joystick* joystick, int button, int state) {
-        m_inputMap.InputButton(joystick->GetName(), button, state);;
+        m_inputMap.InputButton(joystick->getName(), button, state);;
     }
 
     void Input::CallbackAxisState(Joystick* joystick, int axis, int16_t state) {
-        m_inputMap.InputAxis(joystick->GetName(), axis, state);;
+        m_inputMap.InputAxis(joystick->getName(), axis, state);;
     }
 
     void Input::Update() {

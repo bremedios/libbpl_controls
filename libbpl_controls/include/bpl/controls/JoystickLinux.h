@@ -29,9 +29,9 @@ namespace bpl::controls {
         bool Close() override;
         [[nodiscard]] bool Open(const std::string& filename);
 
-        [[nodiscard]] bool ButtonPressed(int button) const override;
-        [[nodiscard]] uint8_t HatPressed(int button) const override;
-        [[nodiscard]] int16_t AxisValue(int index) const override;
+        [[nodiscard]] bool isButtonPressed(int button) const override;
+        [[nodiscard]] bool isHatPressed(int button) const override;
+        [[nodiscard]] int16_t getAxisValue(int index) const override;
         void Update() override;
     protected:
         void ProcessEvent_(const js_event& event);
