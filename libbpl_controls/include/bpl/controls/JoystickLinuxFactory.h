@@ -1,6 +1,9 @@
 //
 // Created by Bradley Remedios on 12/4/24.
 //
+#ifndef BPL_CONTROLS_JOYSTICK_LINUX_FACTORY_H
+#define BPL_CONTROLS_JOYSTICK_LINUX_FACTORY_H
+
 #include <string>
 #include <map>
 #include <list>
@@ -16,7 +19,7 @@ namespace bpl::controls {
         std::list<std::string> getJoystickNames();
         std::list<std::string> getJoystickDevices();
 
-        bpl::controls::JoystickPtr getJoystickByName(const std::string& name);
+        bpl::controls::JoystickLinuxPtr getJoystickByName(const std::string& name);
         void UpdateDeviceList();
     private:
         std::chrono::time_point<std::chrono::steady_clock>     m_nextPoll = std::chrono::steady_clock::now() + std::chrono::seconds(5);
@@ -28,3 +31,5 @@ namespace bpl::controls {
 
     typedef std::shared_ptr<JoystickLinuxFactory> JoystickLinuxFactoryPtr;
 }; // namespace bpl::controls
+
+#endif // BPL_CONTROLS_JOYSTICK_LINUX_FACTORY_H

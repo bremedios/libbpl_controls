@@ -8,7 +8,7 @@
 
 #define __ENABLE_BPL_CONTROLS_DEBUG    1
 
-#define ERROR_MSG(msg)  { std::cerr << "DEBUG:" << __PRETTY_FUNCTION__ << ":" << msg << std::endl; }
+#define ERROR_MSG(msg)  { std::cerr << "ERROR:" << __PRETTY_FUNCTION__ << ":" << msg << std::endl; }
 
 #if defined(__ENABLE_BPL_CONTROLS_DEBUG)
     #define DEBUG_MSG(msg)  { std::cout << "DEBUG:" << __PRETTY_FUNCTION__ << ":" << msg << std::endl; }

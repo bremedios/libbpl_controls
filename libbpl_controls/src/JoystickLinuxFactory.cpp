@@ -33,12 +33,12 @@ namespace bpl::controls {
         return names;
     } // getJoystickDevices()
 
-    bpl::controls::JoystickPtr JoystickLinuxFactory::getJoystickByName(const std::string& name) {
+    bpl::controls::JoystickLinuxPtr JoystickLinuxFactory::getJoystickByName(const std::string& name) {
         // Check to see if the joystick exists
         if (!m_joystickNameMap.contains(name)) {
             DEBUG_MSG("\"" << name << "\" does not exist" << std::endl);
 
-            return JoystickPtr();
+            return JoystickLinuxPtr();
         }
 
         auto joystickDevice = m_joystickNameMap[name];

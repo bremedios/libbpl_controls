@@ -7,6 +7,8 @@
 #include <iostream>
 #include <filesystem>
 
+#include <bpl/sys/Path.h>
+
 #include <bpl/controls/Input.h>
 
 #include "Debug.h"
@@ -26,7 +28,7 @@ namespace bpl::controls {
 
         return _inputPtr;
     } // getInstance
-
+/*
     bool Input::Load8BitdoSN30Pro_() {
         //  8Bitdo SN30 Pro keymap
         m_inputMap.MapButton("8Bitdo SN30 Pro", 0, KeyCode::INPUT_ENTER);
@@ -151,37 +153,79 @@ namespace bpl::controls {
 
         return false;
     } // LoadDevice
-
+*/
     bool Input::LoadKeyMap_() {
-        LoadDevice("8BitDo Pro 2 Wired Controller");
-        LoadDevice("8Bitdo SN30 Pro");
-        LoadDevice("Keyboard");
+        // find our controls folder.
+        auto path = bpl::sys::Path::getResourceFilename("controls");
+
+        if (path.empty()) {
+            ERROR_MSG("Failed to find controls map location");
+
+            return false;
+        }
+
+        // Load our maps from disk, this does not map the inputs.
+        for (const auto & entry: std::filesystem::directory_iterator(path)) {
+            MapPtr mapPtr = std::make_shared<Map>();
+
+            if (!mapPtr->Load(entry.path().string())) {
+                ERROR_MSG("Failed to load map at path: " + entry.path().string());
+                continue;
+            }
+
+            DEBUG_MSG("Adding '" << mapPtr->getName() << "' to control map");
+            m_controlMaps.emplace(mapPtr->getName(), mapPtr);
+        }
 
         return true;
     } // LoadKeyMap_
 
+    bool Input::ScanJoysticks() {
+        m_joystickFactory->UpdateDeviceList();
+
+        auto joysticks = m_joystickFactory->getJoystickNames();
+
+        for (auto& joystick: joysticks) {
+            // if we do not have a mapping for the joystick we skip it
+            if (!m_controlMaps.contains(joystick)) {
+                DEBUG_MSG("No control map for '" << joystick << "' Skipping ...");
+
+                continue;
+            }
+
+            // this will be called repeatedly, we do not want to double add joysticks
+            if (m_joysticks.contains(joystick)) {
+                DEBUG_MSG("Joystick '" << joystick << "' already exists, Skipping ...");
+
+                continue;
+            }
+
+            if (!m_controlMaps[joystick]->MapControls(m_inputMap)) {
+                ERROR_MSG("Failed to add control mapping for '" << joystick << "'");
+
+                return false;
+            }
+
+            // Add and register joystick
+            auto js = m_joystickFactory->getJoystickByName(joystick);
+
+            m_joysticks.emplace(js->getName(), js);
+
+            js->RegisterCallback(this);
+        }
+
+        return true;
+    } // ScanJoysticks
+
     bool Input::Create() {
         LoadKeyMap_();
 
-        int joystickIndex = 0;
+        m_joystickFactory = std::make_shared<bpl::controls::JoystickLinuxFactory>();
 
-        for (const auto &inputIt : std::filesystem::directory_iterator("/dev/input")) {
-            //  Skip any input devices that are not a joystick
-            if (0 != static_cast<std::string>(inputIt.path()).find("/dev/input/js", 0)) {
-                continue;
-            }
-            DEBUG_MSG("Opening joystick " << inputIt.path());
+        if (!ScanJoysticks()) {
+            ERROR_MSG("Failed to scan joysticks");
 
-            JoystickLinuxPtr joystick = std::make_shared<JoystickLinux>();
-
-            if (!joystick->Open(inputIt.path().string())) {
-                break;
-            }
-
-            DEBUG_MSG("Opened joystick: " << joystick->getName());
-
-            m_joysticks[joystick->getName()] = joystick;
-            joystick->RegisterCallback(this);
+            return false;
         }
 
         return true;
