@@ -5,8 +5,6 @@
 #ifndef BPL_CONTROLS_INPUT_H
 #define BPL_CONTROLS_INPUT_H
 
-#include "JoystickLinuxFactory.h"
-
 #include <string>
 
 #include <SDL2/SDL.h>
