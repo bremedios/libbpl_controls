@@ -1,0 +1,49 @@
+{
+  "name": "8BitDo 8BitDo Ultimate wireless Controller for PC",
+  "button-map" : {
+    "0" : 9,
+    "1" : 10,
+    "3" : 11,
+    "4" : 12,
+    "6" : 13,
+    "7" : 18,
+    "8" : 14,
+    "9" : 19,
+    "10": 8,
+    "11": 7,
+    "13" :23,
+    "14" : 24,
+    "19" : 20, 
+    "23" : 15
+  },
+  "axis-to-button-map": [
+    {
+      "axis": 6,
+      "threshold": -16382,
+      "button": 1
+    },
+    {
+      "axis": 6,
+      "threshold": 16382,
+      "button": 2
+    },
+    {
+      "axis": 7,
+      "threshold": -16382,
+      "button": 3
+    },
+    {
+      "axis": 7,
+      "threshold": 16382,
+      "button": 4
+    }
+  ],
+  "axis-map" : {
+    "0": 1,
+    "1": 2,
+    "2": 3,
+    "3": 4,
+    "4": 6,
+    "5": 5
+  }
+}
