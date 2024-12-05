@@ -9,6 +9,8 @@
 
 int main(int argc, char** argv) {
     bpl::controls::Input input;
+    auto nextScan = std::chrono::steady_clock::now();
+    auto scanPeriod = std::chrono::seconds(2);
 
     if ((argc == 2) && std::string("--list") == argv[1]) {
         std::cout << "--list not implemented" << std::endl;
@@ -21,6 +23,13 @@ int main(int argc, char** argv) {
         }
 
         for (;;) {
+            // this will re-scan for joysticks, we don't do it every update though
+            if (std::chrono::steady_clock::now() > nextScan) {
+
+                input.ScanJoysticks();
+                nextScan = std::chrono::steady_clock::now() + scanPeriod;
+            }
+
             input.Update();
 
             if (input.KeyPressed(bpl::controls::KeyCode::INPUT_LEFT)) {
@@ -174,5 +183,8 @@ int main(int argc, char** argv) {
                 std::cout << "INPUT_KEY_Z" << std::endl;
             }
         }
+    }
+    else {
+        std::cout << "Usage: " << argv[0] << "[--list|--open]" << std::endl;
     }
 } // main

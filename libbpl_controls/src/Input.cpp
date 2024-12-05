@@ -156,7 +156,7 @@ namespace bpl::controls {
 */
     bool Input::LoadKeyMap_() {
         // find our controls folder.
-        auto path = bpl::sys::Path::getResourceFilename("controls");
+        auto path = bpl::sys::Path::getResourceFilename("bpl_controls/maps");
 
         if (path.empty()) {
             ERROR_MSG("Failed to find controls map location");

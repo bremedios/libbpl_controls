@@ -81,8 +81,6 @@ int main(int argc, char **argv) {
 
     factory.UpdateDeviceList();
 
-    Open_(factory, "8BitDo Pro 2 Wired Controller");
-
     if ((argc < 2) || (std::string(argv[1]) == "--list")) {
         ListControls_(factory);
     }
