@@ -4,6 +4,7 @@
 #include <list>
 #include <string>
 #include <map>
+#include <algorithm>
 #include <ranges>
 #include <filesystem>
 
