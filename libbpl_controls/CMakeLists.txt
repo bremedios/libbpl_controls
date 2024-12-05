@@ -38,5 +38,5 @@ install(FILES include/bpl/controls/JoystickSdlFactory.h DESTINATION include/bpl/
 install(FILES include/bpl/controls/JoystickLinux.h DESTINATION include/bpl/controls)
 install(FILES include/bpl/controls/JoystickSdl.h DESTINATION include/bpl/controls)
 install(FILES include/bpl/controls/Map.h DESTINATION include/bpl/controls)
-install(FILES include/bpl/controls/Keycode.h.h DESTINATION include/bpl/controls)
+install(FILES include/bpl/controls/Keycode.h DESTINATION include/bpl/controls)
 install(DIRECTORY maps DESTINATION share/bpl_controls/maps)
