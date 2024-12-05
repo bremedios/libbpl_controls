@@ -1,0 +1,45 @@
+{
+  "name": "8bitDo Pro 2 Wired Controller",
+  "button-map" : {
+    "0" : 9,
+    "1" : 10,
+    "2" : 11,
+    "3" : 12,
+    "4" : 13,
+    "5" : 18,
+    "6" : 8,
+    "7" : 7,
+    "9" : 23,
+    "10" : 24
+  },
+  "axis-to-button-map": [
+    {
+      "axis": 6,
+      "threshold": -16382,
+      "button": 1
+    },
+    {
+      "axis": 6,
+      "threshold": 16382,
+      "button": 2
+    },
+    {
+      "axis": 7,
+      "threshold": -16382,
+      "button": 3
+    },
+    {
+      "axis": 7,
+      "threshold": 16382,
+      "button": 4
+    }
+  ],
+  "axis-map" : {
+    "0": 1,
+    "1": 2,
+    "2": 5,
+    "3": 3,
+    "4": 4,
+    "5", 6
+  }
+}
