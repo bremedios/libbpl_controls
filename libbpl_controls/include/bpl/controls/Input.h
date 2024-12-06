@@ -46,6 +46,7 @@ namespace bpl::controls {
         std::map<std::string, bpl::controls::MapPtr>            m_controlMaps;
         bpl::controls::JoystickLinuxFactoryPtr                  m_joystickFactory;
     }; // Input
+    typedef std::shared_ptr<Input> InputPtr;
 } // bpl::controls::
 
 #endif //BPL_CONTROLS_INPUT_H
