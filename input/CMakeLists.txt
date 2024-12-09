@@ -8,4 +8,4 @@ add_executable(input src/main.cpp)
 
 target_link_libraries(input PRIVATE bpl_sys bpl_controls)
 
-install(TARGETS input DESTINATION bin)
+install(TARGETS input DESTINATION usr/bin)

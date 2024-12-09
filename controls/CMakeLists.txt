@@ -8,4 +8,4 @@ add_executable(controls src/main.cpp)
 
 target_link_libraries(controls PRIVATE bpl_sys bpl_controls)
 
-install(TARGETS controls DESTINATION bin)
+install(TARGETS controls DESTINATION usr/bin)
